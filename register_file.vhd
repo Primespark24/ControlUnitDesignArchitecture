@@ -26,20 +26,27 @@ architecture behave of regfile is
 begin   
   -----------------------------------------------------
   -- Set output of register A and B depending on instruction
+  -- Grabs the registers that are input depending on the instruction type, which has different formats for register inputs
   -- Read from A/B
   process(clk) begin
     if rising_edge(clk) then
 		if instr_type = "00" then   -- F/I-type
+        -- Grabs the memory stored at 'RD'
 			OutA <= mem(to_integer(unsigned(instruction(37 downto 32))));
-			OutB <= mem(to_integer(unsigned(instruction(41 downto 36))));
+        -- Grabs the memory stored at 'RS' 
+			OutB <= mem(to_integer(unsigned(instruction(43 downto 38))));
         elsif instr_type = "01" then  --R-type
-			OutA <= mem(to_integer(unsigned(instruction(6 downto 0))));
-			OutB <= mem(to_integer(unsigned(instruction(12 downto 7))));
+        -- Grabs the memory stored at 'RS'
+			OutA <= mem(to_integer(unsigned(instruction(5 downto 0))));
+        -- Grabs the memory stored at 'RD'
+			OutB <= mem(to_integer(unsigned(instruction(11 downto 6))));
         elsif instr_type = "10" then  -- J-type
+        -- Grabs the memory stored at input: 'RD'
 			OutA <= mem(to_integer(unsigned(instruction(56 downto 51))));
 			OutB <= zero;
         elsif instr_type = "11" then    -- M-type
-			OutA <= mem(to_integer(unsigned(instruction(12 downto 7))));
+        -- Grabs the memory stored at input: 'memory_location'
+			OutA <= mem(to_integer(unsigned(instruction(5 downto 0))));
 			OutB <= zero;
         else
             OutA <= zero;
@@ -51,9 +58,11 @@ begin
   -- Write register memory from data_memory result
   process(DM_result, mem, clk) begin
     if instr_type = "01" then   -- R-type
-        mem(to_integer(unsigned(instruction(18 downto 13)))) <= DM_result;
+        -- Writes into the register that is located by 'RT'
+        mem(to_integer(unsigned(instruction(17 downto 12)))) <= DM_result;
     elsif instr_type = "11" then  -- M-type
-        mem(to_integer(unsigned(instruction(12 downto 7)))) <= DM_result;
+        -- Writes into the register that is located by 'RD'
+        mem(to_integer(unsigned(instruction(11 downto 6)))) <= DM_result;
     end if;
   end process;
 end;
