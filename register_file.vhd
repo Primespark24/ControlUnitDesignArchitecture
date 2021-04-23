@@ -13,7 +13,6 @@ use IEEE.math_real.all;
 -- Outputs: OutA, OutB (Output signals sent to ALU)
 entity regfile is 
   port(clk: in  STD_LOGIC;
-       instr_type: in  STD_LOGIC_VECTOR(1 downto 0);
        instruction: in  STD_LOGIC_Vector(63 downto 0);
        DM_result: in  STD_LOGIC_Vector(31 downto 0);
        OutA, OutB: out STD_LOGIC_VECTOR(31 downto 0));
@@ -23,6 +22,7 @@ architecture behave of regfile is
   type ramtype is array (31 downto 0) of STD_LOGIC_VECTOR(31 downto 0);
   signal mem: ramtype;
   signal zero : STD_LOGIC_VECTOR(63 downto 0) := (others => '0');    --Constant 0 value, result if opcode is undefined 
+  signal instr_type : instruction(1 downto 0);
 begin   
   -----------------------------------------------------
   -- Set output of register A and B depending on instruction
@@ -52,7 +52,7 @@ begin
   process(DM_result, mem, clk) begin
     if instr_type = "01" then   -- R-type
         mem(to_integer(unsigned(instruction(18 downto 13)))) <= DM_result;
-    elsif instr_type = "11" then
+    elsif instr_type = "11" then  -- M-type
         mem(to_integer(unsigned(instruction(12 downto 7)))) <= DM_result;
     end if;
   end process;
