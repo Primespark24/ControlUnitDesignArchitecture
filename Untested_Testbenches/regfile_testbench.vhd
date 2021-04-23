@@ -8,9 +8,7 @@ use IEEE.MATH_real.all;
 entity regfile_testbench is
 end;
 ------------------------------------------------------------------------------------------------------------
--- Alu_testbench simulates ALU - It does mathematical operations
--- Inputs: A, B (32 bit signals that are the two numbers being added/subtracted/multiplied/etc)
--- Output: aluresult (Result of the operation between A, B)
+-- 
 architecture regfile_testbench of regfile_testbench is 
     component regfile is
         port(clk: in  STD_LOGIC;
@@ -25,13 +23,10 @@ architecture regfile_testbench of regfile_testbench is
 begin 
     testproc: process begin
         clk <= not clk after half_period when finished /= '1' else '0';
+        -- Simulate random instructions using a register A and B
+        -- Check that outA and outB are what are expected
         
     end process;
 
-sim_regfile: regfile port map(
-        a => sim_a, 
-        b => sim_b, 
-        alucontrol => sim_alucontrol,
-        aluresult => sim_result
-    );
+sim_regfile: regfile port map();
 end regfile_testbench;
