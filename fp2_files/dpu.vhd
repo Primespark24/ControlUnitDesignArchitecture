@@ -76,18 +76,6 @@ port(PC_value: in  STD_LOGIC_VECTOR(5 downto 0);
      instruc: out STD_LOGIC_VECTOR(31 downto 0)); --the signal out containing the instruction
 end component;
 
-
-------------------------------------------------------------------------------------------------------------
---Adder that increments program counter by 4
--- Input: curPC (Current value of the program counter before increment by 4)
--- Input: clk (Used to update/run processes)
--- Output: PCout (Value of program counter after incrementing by 4)
-component pcAdder 
-port (curPC: in std_logic_vector(31 downto 0);
-      clk: in std_logic;
-      PCout: std_logic_vector(31 downto 0));
-end component;
-
 ------------------------------------------------------------------------------------------------------------
 --Multiplexer that controls what goes into the b port of the alu 
 -- Input: instr_Type (Alucontrol signal that specifies which type of instruction is being executed)
@@ -108,6 +96,8 @@ end component;
 -- Output: result (Result of constant_start +- offset)
 component pcbranch
 port(constant_start: in STD_LOGIC_VECTOR(31 downto 0);
+     instr_type: in STD_LOGIC_VECTOR(1 downto 0);
+     four: in STD_LOGIC_VECTOR(31 downto 0);
      offset: in STD_LOGIC_VECTOR(18 downto 0);
      Result: out STD_LOGIC_VECTOR(31 downto 0)); 
 end component;
@@ -124,15 +114,12 @@ signal instr: STD_LOGIC_VECTOR(63 downto 0);
 signal ALU_result: STD_LOGIC_VECTOR(31 downto 0);
 signal DM_output: STD_LOGIC_VECTOR(31 downto 0);
 
-
 begin
 four <= const_zero(32 downto 4) & X"4"; -- signal to add 4 to CP in PC_Plus4
 
----- Wiring for pcAdder
-pcAddComp : pcAdder port map(curPC => PC, clk => clk, PCout => PC_next);
-
----- Wiring for pcbranch 
-pcBranchComp : pcbranch port map(constant_start => const_zero, offset => PC_jump_amount, Result => PC_next); --Don't know what first memory address is
+---- Wiring for pcbranch            --Don't know what first memory address is
+pcBranchComp : pcbranch port map(constant_start => const_zero, instr_type => instr(63 downto 62), 
+                                 four => four, offset => PC_jump_amount, Result => PC_next); 
 
 ---- Wiring for ALU
 ALUComp : alu port map(a => RF_a, b => RF_b, alucontrol => instr(61 downto 57), aluresult => ALU_result);
