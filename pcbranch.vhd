@@ -25,7 +25,7 @@ architecture behave of pcbranch is
 signal extendedOffset: STD_LOGIC_VECTOR(31 downto 0);
 signal zero : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
 begin
-    extendedOffset(31 downto 19) <= "000000000000";
+    extendedOffset(31 downto 19) <= "0000000000000";
     extendedOffset(18 downto 0) <= offset;
     with instr_type(1 downto 0) select Result <=
         constant_start + offset when "10", --J-type

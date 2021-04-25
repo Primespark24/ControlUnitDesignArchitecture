@@ -10,23 +10,23 @@ use IEEE.STD_LOGIC_UNSIGNED.all;
 
 entity control_unit is 
 port(instr: in std_logic_vector(63 downto 0);
-     readBit, writeBit out std_logic;
-     instr_type out std_logic_vector(1 downto 0);
-     alucontrol out std_logic_vector(4 downto 0));
+     readBit, writeBit: out std_logic;
+     instr_type: out std_logic_vector(1 downto 0);
+     alucontrol: out std_logic_vector(4 downto 0));
 end;
 
-architecture struct of datapath is 
+architecture behave of control_unit is
 begin 
     instr_type <= instr(63 downto 62);
     alucontrol <= instr(61 downto 57);
 
     --Set readbit
     with instr(61 downto 57) select readBit <=
-        '1' when 01000,
+        '1' when "01000",
         '0' when others;
     
     --Set writeBit
-    with alucontrol(61 downto 57) select writeBit <=
-        '1' when 01001,
+    with instr(61 downto 57) select writeBit <=
+        '1' when "01001",
         '0' when others;
 end;

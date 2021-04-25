@@ -21,13 +21,14 @@ end;
 architecture behave of regfile is
   type ramtype is array (31 downto 0) of STD_LOGIC_VECTOR(31 downto 0);
   signal mem: ramtype;
-  signal zero : STD_LOGIC_VECTOR(63 downto 0) := (others => '0');    --Constant 0 value, result if opcode is undefined 
-  signal instr_type : instruction(1 downto 0);
+  signal zero : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');    --Constant 0 value, result if opcode is undefined 
+  signal instr_type : STD_LOGIC_VECTOR(1 downto 0);
 begin   
   -----------------------------------------------------
   -- Set output of register A and B depending on instruction
   -- Grabs the registers that are input depending on the instruction type, which has different formats for register inputs
   -- Read from A/B
+  instr_type <= instruction(63 downto 62);
   process(clk) begin
     if rising_edge(clk) then
 		if instr_type = "00" then   -- F/I-type

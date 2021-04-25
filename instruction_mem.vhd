@@ -20,7 +20,7 @@ architecture behave of imem is
   impure function InitRamFromFile ( RamFileName : in string ) return RamType is
   variable ch: character;
   variable index : integer;
-  variable result: signed((width-1) downto 0);
+  variable result: signed(63 downto 0);
   variable tmpResult: signed(63 downto 0);
   file mem_file: TEXT is in RamFileName;
   variable L: line;
@@ -28,23 +28,23 @@ architecture behave of imem is
   begin
     -- initialize memory from a file
     for i in 0 to 63 loop -- set all contents low
-      RAM(i) := std_logic_vector(to_unsigned(0, width));
+      RAM(i) := std_logic_vector(to_unsigned(0, 64));
     end loop;
     index := 0;
     while not endfile(mem_file) loop
       -- read the next line from the file
       readline(mem_file, L);
-      result := to_signed(0,width);
+      result := to_signed(0, 64);
       for i in 1 to 8 loop
         -- read character from the line just read
         read(L, ch);
         --  convert character to a binary value from a hex value
         if '0' <= ch and ch <= '9' then
           tmpResult := result*16 + character'pos(ch) - character'pos('0') ;
-          result := tmpResult(31 downto 0);
+          result := tmpResult(63 downto 0);
         elsif 'a' <= ch and ch <= 'f' then
           tmpResult := result*16 + character'pos(ch) - character'pos('a')+10 ;
-          result := tmpResult(31 downto 0);
+          result := tmpResult(63 downto 0);
         else report "Format error on line " & integer'image(index)
           severity error;
         end if;
