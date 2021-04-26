@@ -21,64 +21,8 @@ end;
 
 architecture PirateProcessorTop of PirateProcessorTop is
 
-component datapath 
-port(clk: in STD_LOGIC);
-end component;
-
-component alu
-port(a: in std_logic_vector(31 downto 0);
-     b: in std_logic_vector(31 downto 0);
-     alucontrol: in std_logic_vector(4 downto 0);
-     aluresult: out std_logic_vector(31 downto 0));
-end component;
-
-component regfile
-  port(clk: in  STD_LOGIC;
-       instruction: in  STD_LOGIC_Vector(63 downto 0);
-       DM_result: in  STD_LOGIC_Vector(31 downto 0);
-       OutA, OutB: out STD_LOGIC_VECTOR(31 downto 0));
-end component;
-
-component data_memory
-  port(clk:  in STD_LOGIC;
-       ReadBit: in STD_LOGIC;
-       WriteBit: in STD_LOGIC;
-       writeData: in STD_LOGIC_Vector(31 downto 0);
-       readAddress: in STD_LOGIC_Vector(31 downto 0);
-       writeAddress: in STD_LOGIC_Vector(31 downto 0);
-       result: out STD_LOGIC_VECTOR(31 downto 0));
-end component;
-
-component instruction_mem
-port(PC_value: in  STD_LOGIC_VECTOR(5 downto 0);
-     instruc: out STD_LOGIC_VECTOR(63 downto 0)); --the signal out containing the instruction
-end component;
-
-component bsrc 
-port(instr_type: in std_logic_vector(1 downto 0);
-     regB: in std_logic_vector(31 downto 0);
-     immB: in std_logic_vector(31 downto 0);
-     toB: out std_logic_vector(31 downto 0));
-end component;
-
-component pcbranch
-port(constant_start: in STD_LOGIC_VECTOR(31 downto 0);
-     clk: in STD_LOGIC;
-     oldPC: in STD_LOGIC_VECTOR(31 downto 0);
-     instr_type: in STD_LOGIC_VECTOR(1 downto 0);
-     four: in STD_LOGIC_VECTOR(31 downto 0);
-     offset: in STD_LOGIC_VECTOR(18 downto 0);
-     Result: out STD_LOGIC_VECTOR(31 downto 0)); 
-end component;
-
-component control_unit
-port(instr: in std_logic_vector(63 downto 0);
-     readBit, writeBit: out std_logic;
-     instr_type: out std_logic_vector(1 downto 0);
-     alucontrol: out std_logic_vector(4 downto 0));
-end component;
-
 begin
+    DPU : entity work.datapath port map(clk => clk);
 end PirateProcessorTop;
 
 --signal const_zero : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');

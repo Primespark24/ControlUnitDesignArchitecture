@@ -14,11 +14,11 @@ use IEEE.NUMERIC_STD.all;
 entity pcbranch is     -- define signals going in and out of the adder
 port(constant_start: in STD_LOGIC_VECTOR(31 downto 0);
      clk: in STD_LOGIC; 
-     oldPC: in STD_LOGIC_VECTOR(31 downto 0);
+     oldPC: in STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
      instr_type: in STD_LOGIC_VECTOR(1 downto 0);
-     four: in STD_LOGIC_VECTOR(31 downto 0);
+     one: in STD_LOGIC_VECTOR(31 downto 0);
      offset: in STD_LOGIC_VECTOR(18 downto 0);
-     Result: out STD_LOGIC_VECTOR(31 downto 0)); 
+     Result: out STD_LOGIC_VECTOR(31 downto 0) := (others => '0'));
 end;
 
 ------------------------------------------------------------------------------------------------------------
@@ -26,13 +26,11 @@ end;
 architecture behave of pcbranch is
 signal extendedOffset: STD_LOGIC_VECTOR(31 downto 0);
 signal zero : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
-signal testResult : STD_LOGIC_VECTOR(31 downto 0);
 begin
-    testResult <= "00000000000000000000000000000000";
-    process(clk, oldPC, testResult, four)
+    process(clk, oldPC, one)
     begin
         if rising_edge(clk) then
-            testResult <= oldPC + "00000000000000000000000000000100";
+              Result <= oldPC + one;
 --            extendedOffset(31 downto 19) <= "0000000000000";
 --            extendedOffset(18 downto 0) <= offset;
 --
@@ -46,5 +44,4 @@ begin
 --         --       constant_start + four when others;
         end if;
     end process;
-    Result <= testResult;
 end;

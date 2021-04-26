@@ -22,8 +22,8 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;
 library ieee_proposed;
-use ieee_proposed.fixed_float_types.all;
-use ieee_proposed.fixed_pkg.all;
+use work.fixed_float_types.all;
+use work.fixed_pkg.all;
 
 package float_pkg is
 -- generic (

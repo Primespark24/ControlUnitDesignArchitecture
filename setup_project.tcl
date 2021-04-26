@@ -72,7 +72,7 @@ if {$simulationTestbench ne ""} {
 }
 
 # add local vhdl source files to the board project
-add_files [glob ./*.vhd ]
+add_files [glob ./*.vhd]
 
 # add the constraints file to the board project
 add_files -fileset constrs_1 $constraintsFile
