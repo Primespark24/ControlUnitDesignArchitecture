@@ -26,9 +26,9 @@ begin
 
   -- Generate simulated clock with 10 ns period
   clkproc: process begin
-    clk <= '1';
-    wait for 10 ns; 
     clk <= '0';
+    wait for 10 ns; 
+    clk <= '1';
     wait for 10 ns;
   end process;
 
