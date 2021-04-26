@@ -12,19 +12,19 @@ entity instruction_mem is -- instruction memory
        instruc: out STD_LOGIC_VECTOR(63 downto 0)); --the signal out containing the instruction
   end;
 
-architecture behave of imem is
+architecture behave of instruction_mem is
   type ramtype is array (63 downto 0) of STD_LOGIC_VECTOR(63 downto 0);
 
 
   -- function to initialize the instruction memory from a data file
   impure function InitRamFromFile ( RamFileName : in string ) return RamType is
-  variable ch: character;
-  variable index : integer;
-  variable result: signed(63 downto 0);
-  variable tmpResult: signed(63 downto 0);
-  file mem_file: TEXT is in RamFileName;
-  variable L: line;
-  variable RAM : ramtype;
+    variable ch: character;
+    variable index : integer;
+    variable result: signed(63 downto 0);
+    variable tmpResult: signed(127 downto 0);
+    file mem_file: TEXT is in RamFileName;
+    variable L: line;
+    variable RAM : ramtype;
   begin
     -- initialize memory from a file
     for i in 0 to 63 loop -- set all contents low
@@ -35,7 +35,7 @@ architecture behave of imem is
       -- read the next line from the file
       readline(mem_file, L);
       result := to_signed(0, 64);
-      for i in 1 to 8 loop
+      for i in 1 to 16 loop
         -- read character from the line just read
         read(L, ch);
         --  convert character to a binary value from a hex value
@@ -67,6 +67,6 @@ begin
 -- Process to read memory from register file based on program counter
   process (PC_value) is
   begin
-    rd <= mem(to_integer(unsigned(PC_value)));
+    instruc <= mem(to_integer(unsigned(PC_value)));
   end process;
 end behave;

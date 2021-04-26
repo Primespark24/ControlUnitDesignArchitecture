@@ -95,7 +95,9 @@ end component;
 -- Output: result (Result of constant_start +- offset)
 component pcbranch
 port(constant_start: in STD_LOGIC_VECTOR(31 downto 0);
-     instr_type: in STD_LOGIC_VECTOR(1 downto 0);
+     clk: in STD_LOGIC;
+     oldPC: in STD_LOGIC_VECTOR(31 downto 0);
+     instr_type : IN STD_LOGIC_VECTOR(1 downto 0);
      four: in STD_LOGIC_VECTOR(31 downto 0);
      offset: in STD_LOGIC_VECTOR(18 downto 0);
      Result: out STD_LOGIC_VECTOR(31 downto 0)); 
@@ -120,7 +122,6 @@ signal const_zero : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
 signal four: STD_LOGIC_VECTOR(31 downto 0);
 signal PC: STD_LOGIC_VECTOR(31 downto 0);
 signal PC_jump_amount: STD_LOGIC_VECTOR(18 downto 0);
-signal PC_next: STD_LOGIC_VECTOR(31 downto 0);  --After PC is incremented or jumped to?
 signal RF_a: STD_LOGIC_VECTOR(31 downto 0);
 signal RF_b: STD_LOGIC_VECTOR(31 downto 0);
 signal instr: STD_LOGIC_VECTOR(63 downto 0);
@@ -130,16 +131,18 @@ signal RB, WB: STD_LOGIC;
 
 begin
 four <= const_zero(31 downto 4) & X"4"; -- signal to add 4 to CP in PC_Plus4
+PC <= "00000000000000000000000000000000";
 
 ---- Wiring for instruction memory
+-- PC_value is probably wrong
 IM : instruction_mem port map(PC_value => PC(5 downto 0), instruc => instr);
 
 ---- Wiring for control unit
 CU : control_unit port map(instr => instr, readBit => RB, writeBit => RB, instr_type => instr(63 downto 62), alucontrol => instr(61 downto 57));
 
 ---- Wiring for pcbranch            --Don't know what first memory address is
-pcBranchComp : pcbranch port map(constant_start => const_zero, instr_type => instr(63 downto 62), 
-                                 four => four, offset => PC_jump_amount, Result => PC_next); 
+pcBranchComp : pcbranch port map(constant_start => const_zero, clk => clk, oldPC => PC, instr_type => instr(63 downto 62), 
+                                 four => four, offset => PC_jump_amount, Result => PC); 
 
 ---- Wiring for ALU
 ALUComp : alu port map(a => RF_a, b => RF_b, alucontrol => instr(61 downto 57), aluresult => ALU_result);
@@ -152,10 +155,6 @@ RFComp : regfile port map(clk => clk, instruction => instr, DM_result => DM_outp
 -- Add WriteBit (From control unit)
 -- Read address and write address are probably wrong. May need more signals
 DMComp : data_memory port map(clk => clk, writeData => RF_b, ReadBit => '0', WriteBit => '0', readAddress => ALU_result, writeAddress => ALU_result, result => DM_output);
-
----- Wiring for instruction_mem 
--- PC_value is probably wrong
-IMComp : instruction_mem port map(PC_value => PC(5 downto 0), instruc => instr);
 
 ---- Wiring for bsrc
 BSRCComp : bsrc port map(instr_type => instr(63 downto 62), regB => RF_b, immB => instr(31 downto 0), toB => RF_b);
