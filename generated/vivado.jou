@@ -1,0 +1,72 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Mon Apr 26 19:38:33 2021
+# Process ID: 9588
+# Current directory: C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13816 C:\Users\green\Desktop\uploader\fp_3_micro-pirate-processor\generated\FP3.xpr
+# Log file: C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/vivado.log
+# Journal file: C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+source High_lvl_sim.tcl
+restart
+run 200 ns
+close_sim
+launch_simulation
+source High_lvl_sim.tcl
+restart
+run 200 ns
+close_sim
+launch_simulation
+source High_lvl_sim.tcl
+restart
+run 200 ns
+run 200 ns
+run 200 ns
+run 200 ns
+run 200 ns
+run 200 ns
+run 200 ns
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+close_sim
+launch_simulation
+source High_lvl_sim.tcl
+restart
+restart
+run 200 ns
+run 200 ns
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+close_sim
+launch_simulation
+source High_lvl_sim.tcl
+restart
+run 200 ns
+run 200 ns
+close_sim
+launch_simulation
+source High_lvl_sim.tcl
+restart
+run 200 ns
+run 200 ns
+close_sim
+launch_simulation
+source High_lvl_sim.tcl
+restart
+run 200 ns
+run 200 ns
+close_sim
+launch_simulation
+source High_lvl_sim.tcl
+restart
+run 200 ns
+run 200 ns
+close_sim
