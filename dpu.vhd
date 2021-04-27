@@ -111,7 +111,9 @@ end component;
 -- Output: alucontrol (5 bit opcode that is given to the ALU)
 -- Output: instr_type (2 bit given to various components)
 component control_unit
-port(instr: in std_logic_vector(63 downto 0);
+port(
+     clk: in STD_LOGIC;
+     instr: in std_logic_vector(63 downto 0);
      readBit, writeBit: out std_logic;
      instr_type: out std_logic_vector(1 downto 0);
      alucontrol: out std_logic_vector(4 downto 0));
@@ -138,9 +140,9 @@ one <= const_zero(31 downto 1) & '1'; -- signal to add 1 to PC in PcBranch
 IM : instruction_mem port map(PC_value => PC(5 downto 0), instruc => instr);
 
 ---- Wiring for control unit                                               --these are OUT SIGNALS, they were overiding instr
-CU : control_unit port map(instr => instr, readBit => RB, writeBit => RB, instr_type => instruct_type, alucontrol => alu_control);
+CU : control_unit port map(clk=>clk, instr => instr, readBit => RB, writeBit => WB, instr_type => instruct_type, alucontrol => alu_control);
 
----- Wiring for pcbranch            --Don't know what first memory address is
+------ Wiring for pcbranch            --Don't know what first memory address is
 pcBranchComp : pcbranch port map(constant_start => const_zero, clk => clk, oldPC => PC, instr_type => instr(63 downto 62), 
                                  one => one, offset => PC_jump_amount, Result => PC); 
 
