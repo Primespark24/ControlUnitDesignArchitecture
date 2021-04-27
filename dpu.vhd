@@ -63,7 +63,7 @@ BSRCComp : entity work.bsrc port map(instr_type => instr(63 downto 62), regB => 
 --ALUComp : entity work.alu port map(a => RF_a, b => b_alu_input, alucontrol => instr(61 downto 57), branch => branch, aluresult => ALU_result);
 
 ---- Wiring for register file 
---RFComp : entity work.regfile port map(clk => clk, instruction => instr, DM_result => DM_output, OutA => RF_a, OutB => RF_b);
+RFComp : entity work.regfile port map(clk => clk, instruction => instr, DM_result => DM_output, OutA => RF_a, OutB => RF_b);
 
 ---- Wiring for data_memory 
 -- Add ReadBit (From control unit)

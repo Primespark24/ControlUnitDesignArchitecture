@@ -15,12 +15,12 @@ entity regfile is
   port(clk: in  STD_LOGIC;
        instruction: in  STD_LOGIC_Vector(63 downto 0);
        DM_result: in  STD_LOGIC_Vector(31 downto 0);
-       OutA, OutB: out STD_LOGIC_VECTOR(31 downto 0));
+       OutA, OutB: out STD_LOGIC_VECTOR(31 downto 0) := (others => '0'));
 end;
 
 architecture behave of regfile is
   type ramtype is array (31 downto 0) of STD_LOGIC_VECTOR(31 downto 0);
-  signal mem: ramtype;
+  signal mem: ramtype := (others=>(others => '0'));
   signal zero : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');    --Constant 0 value, result if opcode is undefined 
   signal instr_type : STD_LOGIC_VECTOR(1 downto 0);
 begin   
@@ -47,7 +47,7 @@ begin
 			OutB <= zero;
         elsif instr_type = "11" then    -- M-type
         -- Grabs the memory stored at input: 'memory_location'
-			OutA <= mem(to_integer(unsigned(instruction(5 downto 0))));
+			OutA <= mem(to_integer(unsigned(instruction(11 downto 6))));
 			OutB <= zero;
         else
             OutA <= zero;
