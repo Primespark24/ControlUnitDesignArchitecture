@@ -124,10 +124,12 @@ signal PC: STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
 signal PC_jump_amount: STD_LOGIC_VECTOR(18 downto 0);
 signal RF_a: STD_LOGIC_VECTOR(31 downto 0);
 signal RF_b: STD_LOGIC_VECTOR(31 downto 0);
-signal instr: STD_LOGIC_VECTOR(63 downto 0);
+signal instr: STD_LOGIC_VECTOR(63 downto 0) := (others=> '0');
 signal ALU_result: STD_LOGIC_VECTOR(31 downto 0);
 signal DM_output: STD_LOGIC_VECTOR(31 downto 0);
 signal RB, WB: STD_LOGIC;
+signal instruct_type: STD_LOGIC_VECTOR(1 downto 0);
+signal alu_control: STD_LOGIC_VECTOR(4 downto 0);
 
 begin
 one <= const_zero(31 downto 1) & '1'; -- signal to add 1 to PC in PcBranch
@@ -135,28 +137,28 @@ one <= const_zero(31 downto 1) & '1'; -- signal to add 1 to PC in PcBranch
 ---- Wiring for instruction memory
 IM : instruction_mem port map(PC_value => PC(5 downto 0), instruc => instr);
 
----- Wiring for control unit
-CU : control_unit port map(instr => instr, readBit => RB, writeBit => RB, instr_type => instr(63 downto 62), alucontrol => instr(61 downto 57));
+---- Wiring for control unit                                               --these are OUT SIGNALS, they were overiding instr
+CU : control_unit port map(instr => instr, readBit => RB, writeBit => RB, instr_type => instruct_type, alucontrol => alu_control);
 
 ---- Wiring for pcbranch            --Don't know what first memory address is
 pcBranchComp : pcbranch port map(constant_start => const_zero, clk => clk, oldPC => PC, instr_type => instr(63 downto 62), 
                                  one => one, offset => PC_jump_amount, Result => PC); 
 
 ---- Wiring for ALU
-ALUComp : alu port map(a => RF_a, b => RF_b, alucontrol => instr(61 downto 57), aluresult => ALU_result);
+--ALUComp : alu port map(a => RF_a, b => RF_b, alucontrol => instr(61 downto 57), aluresult => ALU_result);
 
 ---- Wiring for register file 
-RFComp : regfile port map(clk => clk, instruction => instr, DM_result => DM_output, OutA => RF_a, OutB => RF_b);
+--RFComp : regfile port map(clk => clk, instruction => instr, DM_result => DM_output, OutA => RF_a, OutB => RF_b);
 
 ---- Wiring for data_memory 
 -- Add ReadBit (From control unit)
 -- Add WriteBit (From control unit)
 -- Read address and write address are probably wrong. May need more signals
-DMComp : data_memory port map(clk => clk, writeData => RF_b, ReadBit => '0', WriteBit => '0', readAddress => ALU_result, writeAddress => ALU_result, result => DM_output);
+--DMComp : data_memory port map(clk => clk, writeData => RF_b, ReadBit => '0', WriteBit => '0', readAddress => ALU_result, writeAddress => ALU_result, result => DM_output);
 
 ---- Wiring for bsrc
-BSRCComp : bsrc port map(instr_type => instr(63 downto 62), regB => RF_b, immB => instr(31 downto 0), toB => RF_b);
-
+--BSRCComp : bsrc port map(instr_type => instr(63 downto 62), regB => RF_b, immB => instr(31 downto 0), toB => RF_b);
+ 
 end;
 
 
