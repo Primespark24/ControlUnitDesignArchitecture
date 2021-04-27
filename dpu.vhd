@@ -60,16 +60,14 @@ pcBranchComp : entity work.pcbranch port map(constant_start => const_zero, clk =
 BSRCComp : entity work.bsrc port map(instr_type => instr(63 downto 62), regB => RF_b, immB => immB_input, toB => b_alu_input);
 
 ---- Wiring for ALU
---ALUComp : entity work.alu port map(a => RF_a, b => b_alu_input, alucontrol => instr(61 downto 57), branch => branch, aluresult => ALU_result);
+ALUComp : entity work.alu port map(a => RF_a, b => b_alu_input, alucontrol => instr(61 downto 57), branch => branch, aluresult => ALU_result);
 
 ---- Wiring for register file 
 RFComp : entity work.regfile port map(clk => clk, instruction => instr, DM_result => DM_output, OutA => RF_a, OutB => RF_b);
 
 ---- Wiring for data_memory 
--- Add ReadBit (From control unit)
--- Add WriteBit (From control unit)
 -- Read address and write address are probably wrong. May need more signals
---DMComp : entity work.data_memory port map(clk => clk, writeData => RF_b, ReadBit => '0', WriteBit => '0', readAddress => ALU_result, writeAddress => ALU_result, result => DM_output);
+DMComp : entity work.data_memory port map(clk => clk, writeData => RF_b, ReadBit => RB, WriteBit => WB, readAddress => ALU_result, writeAddress => ALU_result, result => DM_output);
 
 end;
 
