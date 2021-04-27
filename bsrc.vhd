@@ -24,7 +24,6 @@ architecture behave of bsrc is
 begin 
     with instr_type(1 downto 0) select toB <=
     immB when "00",   
-    immB when "10",   
     regB when others; 
 end;
     

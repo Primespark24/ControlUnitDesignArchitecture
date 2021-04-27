@@ -22,12 +22,11 @@ end;
 architecture struct of datapath is
 signal const_zero : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
 signal PC: STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
-signal PC_jump_amount: STD_LOGIC_VECTOR(18 downto 0);
-signal RF_a: STD_LOGIC_VECTOR(31 downto 0);
-signal RF_b: STD_LOGIC_VECTOR(31 downto 0);
+signal RF_a: STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
+signal RF_b: STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
 signal instr: STD_LOGIC_VECTOR(63 downto 0) := (others=> '0');
 signal ALU_result: STD_LOGIC_VECTOR(31 downto 0);
-signal DM_output: STD_LOGIC_VECTOR(31 downto 0);
+signal DM_output: STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
 signal RB, WB: STD_LOGIC;
 signal instruct_type: STD_LOGIC_VECTOR(1 downto 0);
 signal alu_control: STD_LOGIC_VECTOR(4 downto 0);
@@ -55,10 +54,10 @@ IM : entity work.instruction_mem port map(PC_value => PC(5 downto 0), instruc =>
 CU : entity work.control_unit port map(clk=>clk, instr => instr, readBit => RB, writeBit => WB, instr_type => instruct_type, alucontrol => alu_control);
 
 ------ Wiring for pcbranch            
-pcBranchComp : entity work.pcbranch port map(constant_start => const_zero, clk => clk, branch_input => branch, oldPC => PC, offset => PC_jump_amount, Result => PC); 
+pcBranchComp : entity work.pcbranch port map(constant_start => const_zero, clk => clk, branch_input => branch, oldPC => PC, offset => instr(18 downto 0), Result => PC); 
 
 ---- Wiring for bsrc
---BSRCComp : entity work.bsrc port map(instr_type => instr(63 downto 62), regB => RF_b, immB => immB_input, toB => b_alu_input);
+BSRCComp : entity work.bsrc port map(instr_type => instr(63 downto 62), regB => RF_b, immB => immB_input, toB => b_alu_input);
 
 ---- Wiring for ALU
 --ALUComp : entity work.alu port map(a => RF_a, b => b_alu_input, alucontrol => instr(61 downto 57), branch => branch, aluresult => ALU_result);
