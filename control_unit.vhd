@@ -12,8 +12,6 @@ entity control_unit is
 port(clk: in std_logic;
     instr: in std_logic_vector(63 downto 0) := (others=> '0');
      readBit, writeBit: out std_logic := '0';
-port(instr: in std_logic_vector(63 downto 0) := (others=> '0');
-     readBit, writeBit: out std_logic;
      instr_type: out std_logic_vector(1 downto 0) := (others=> '0');
      alucontrol: out std_logic_vector(4 downto 0):= (others=> '0'));
 end;

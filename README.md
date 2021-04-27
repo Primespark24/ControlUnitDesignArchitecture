@@ -105,3 +105,44 @@ In this section, include your summary of the groups observations.
 | 25 pts. Control Unit Test  | Simulation test bench created but not documented well or does not work properly |	Ad-hoc test code that tests every possible instruction and runs correctly in simulation. |	Ad-hoc program that runs correctly in simulation and also on the FPGA. |
 | 25 pts. Mini Presentation | Little to no content, poor presentation. | Several of the required elements for Exercise 4 | All the required elements of Exercise 4 and a good presentation.
 
+***
+Machine Code Instruction Format: 64 bits: 
+
+x means that the value depends on the runtime
+
+0: F/I-Type: |2 Bit instruction type| 5 bits op | 13 Extra | 6 RS |6 RD | 32 Immediate/Float|
+
+| Instruction| Instruction_Type | Opcode | Extra | RS  | RD | Immediate|
+|:----:| :----:|:----:|:----:|:----:|:----:|:----:|
+| Addfi      |    00            | 00000  |  13   |  x  | x  |   x      |
+
+1: R-Type:   |2 Bit instruction type| 5 bits op| 39 bit extra| 6 RT | 6 RD | 6 RS |
+
+| Instruction| Instruction_Type | Opcode | Extra | RT | RD | RS |
+|:---:| :---:|:---:|:---:|:---:|:---:|:---:|
+| Sub        |    01            | 00010  |  39   | x  | x  | x  |
+| Add        |    01            | 00001  |  39   | x  | x  | x  |
+| Mul        |    01            | 00011  |  39   | x  | x  | x  |
+| Div        |    01            | 00100  |  39   | x  | x  | x  |
+| Mod        |    01            | 00101  |  39   | x  | x  | x  |
+| And        |    01            | 00110  |  39   | x  | x  | x  |
+| Or         |    01            | 00111  |  39   | x  | x  | x  |
+
+2: J-Type:   |2 Bit instruction type| 5 bits op| 6 RD | 32 Immediate/Float |Offset from current line 19 bits|
+| Instruction| Instruction_Type | Opcode | RD    | Immediate | Jump Offset |
+|:---:| :---:|:---:|:---:|:---:     |:---:   |
+| beq        |   10              |  01010 |  x    |   x       |  calculate  |
+| bne        |   10              |  01011 |  x    |   x       |  calculate  |
+| jump       |   10             |  01100 |  x    |   x       |  calculate  |
+| blt        |   10             |  01110 |  x    |   x       |  calculate  |
+| bgt        |   10             |  01111 |  x    |   x       |  calculate  |
+
+3:  M-Type:   |2 Bit instruction type| 5 bits op| 45 bits Extra | 6 RD | 6 mem_loc |
+
+| Instruction | Instruction Type| Opcode | Extra | RD | Memory Location |
+| :---: | :---: | :---: | :---: | :---:| :---: |
+| lw         |    11                | 01000    |  45           | x    | x  |  x |
+| sw         |    11                | 01001    |  45           | x    | x   | x |
+
+Lw and sw are only to be called in the assembly program when using a defined variable. It is not defined to be able to load from one register to another, or store from one register to another. For that purpose, use add. 
+***
