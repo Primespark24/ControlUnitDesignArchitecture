@@ -21,7 +21,7 @@ Complete this section if you are doing a single cycle processor. Create the foll
     *********************************************************************
 
 | Instruction| Instruction_Type | Opcode/aluControl | ReadBit | WriteBit  |
-|:----:| :----:|:----:|:----:|:----:|:----:|:----:  |
+|:----:| :----:|:----:|:----:|:----:|
 | Addfi      |    00            | 00000             |  0      |  0        |
 | Sub        |    01            | 00010             |  0      |  0        |
 | Add        |    01            | 00001             |  0      |  0        |
