@@ -21,9 +21,14 @@ end;
 -- If the instruction is a I-type instruction, output will be immB
 -- Else, the output will be regB
 architecture behave of bsrc is 
-begin 
-    with instr_type(1 downto 0) select toB <=
-    immB when "00",   
-    regB when others; 
+begin
+    process (instr_type, regB, immB)
+    begin
+        if (instr_type(1 downto 0)) = "00" then
+            toB <= immB;
+        else
+            toB <= regB;
+        end if;
+    end process;
 end;
     
