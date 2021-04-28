@@ -30,13 +30,11 @@ Complete this section if you are doing a single cycle processor. Create the foll
 | Mod        |    01            | 00101             |  0      |  0        |
 | And        |    01            | 00110             |  0      |  0        |
 | Or         |    01            | 00111             |  0      |  0        |
-
 | beq        |   10             |  01010            |  0      |  0        |
 | bne        |   10             |  01011            |  0      |  0        |
 | jump       |   10             |  01100            |  0      |  0        |
 | blt        |   10             |  01110            |  0      |  0        |
 | bgt        |   10             |  01111            |  0      |  0        |
-
 | lw         |    11            | 01000             |  1      |  0        |
 | sw         |    11            | 01001             |  0      |  1        |  
     Fig 1 Single Cycle CU Main Decoder Truth Table
