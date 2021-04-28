@@ -17,7 +17,9 @@ use work.fixed_pkg.all;
 -- Input: alucontrol - (3 bit singal that tells alu what operation is being performed)
 -- Output: aluresult (Result of the operation between A, B)
 entity alu is     -- define signals going in and out of the alu
-  port(a: in STD_LOGIC_VECTOR(31 downto 0);
+  port(
+       instruction: in STD_LOGIC_Vector(63 downto 0);
+       a: in STD_LOGIC_VECTOR(31 downto 0);
        b: in STD_LOGIC_VECTOR(31 downto 0);
        alucontrol: in STD_LOGIC_VECTOR(4 downto 0);  
        branch:  out STD_LOGIC;
@@ -43,13 +45,13 @@ begin
     STD_LOGIC_VECTOR(float_a / float_b)     when "00100",   --div
     STD_LOGIC_VECTOR(float_a mod float_b)   when "00101",   --mod
     --these may never be used but wanted to have 8 ops
-    a and b                 when "00110",   --and
-    a or b                  when "00111",   --or
+    a                       when "01000",   --sw
+    b                       when "01001",   --lw
     zero                    when others;
 
 
   --Process to determine the branching flag
-  process(a_minus_b, alucontrol)
+  process(a_minus_b, alucontrol, instruction)
   begin
     --BEQ: Set the branch flag 
     if alucontrol = "01010" and a_minus_b = STD_LOGIC_VECTOR(float_zero) then

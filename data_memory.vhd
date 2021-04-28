@@ -16,45 +16,43 @@ use IEEE.NUMERIC_STD.all;
 -- Input: writeAddress (32 bit signal of which memory location to write to)
 -- Output: result (Signal sent back to regfile for loadword instructions)
 entity data_memory is -- data memory
-  port(clk:  in STD_LOGIC;
+  port(
+       instruction: in STD_LOGIC_Vector(63 downto 0);
+       clk:  in STD_LOGIC;
        ReadBit: in STD_LOGIC;
        WriteBit: in STD_LOGIC;
        writeData: in STD_LOGIC_Vector(31 downto 0);
-       readAddress: in STD_LOGIC_Vector(31 downto 0);
-       writeAddress: in STD_LOGIC_Vector(31 downto 0);
-       result: out STD_LOGIC_VECTOR(31 downto 0));
+       ALU_result: in STD_LOGIC_Vector(31 downto 0);
+       result: out STD_LOGIC_VECTOR(31 downto 0) := (others=> '0'));
 end;
 
 -------------------------------------------------------------------- 
 -- Data memory holds 64 32-bit numbers
 architecture behave of data_memory is
   type ramtype is array (63 downto 0) of STD_LOGIC_VECTOR(31 downto 0);
-  signal mem: ramtype;
+  signal mem: ramtype := (others=>(others => '0'));
   signal const_zero : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
 begin
 
   -------------------------------------------------------------------- 
   --Process for reading data
-  process (clk, ReadBit) is
+  process (ReadBit, instruction, clk) is
   begin
-    if clk'event and clk = '1' then
         if (ReadBit = '1') then 
-			result <= mem(to_integer(unsigned(readAddress))); --Wont work
+			result <= mem(to_integer(unsigned(instruction(5 downto 0)))); 
         else
 			result <= const_zero;
         end if;
-    end if;
   end process;
 
   -------------------------------------------------------------------- 
   --Process for writing data
-  process (clk, WriteBit) is
+  process (WriteBit, instruction, clk) is
   begin
-    if clk'event and clk = '1' then
         if (WriteBit = '1') then 
-            mem(to_integer(unsigned(writeAddress))) <= writeData;
+            mem(to_integer(unsigned(instruction(5 downto 0)))) <= ALU_result;
+        else
 			result <= const_zero;
         end if;
-    end if;
   end process;
 end;
