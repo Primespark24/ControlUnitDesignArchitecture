@@ -2,8 +2,8 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Mon Apr 26 19:36:32 2021
-# Process ID: 28620
+# Start of session at: Tue Apr 27 21:49:43 2021
+# Process ID: 6596
 # Current directory: C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor
 # Command line: Vivado.exe -mode batch -source ./setup_project.tcl
 # Log file: C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/vivado.log
@@ -13,8 +13,8 @@ source ./setup_project.tcl
 # set outputdir "./generated"
 # set projectName "FP3"
 # set topLevelModuleName "PirateProcessorTop" 
-# set topLevelTestbenchModuleName "High_lvl_sim"
-# set simulationTestbench "./High_lvl_testbench.vhd"
+# set topLevelTestbenchModuleName "alu_bsrc_pcbranch_testbench"
+# set simulationTestbench "./alu_bsrc_pcbranch_testbench.vhd"
 # set generateBitStream "false"
 # set fpgaPart "xc7a35tcpg236-1"
 # set constraintsFile "./Basys3_Master.xdc"
@@ -61,34 +61,30 @@ Launching Simulation ----------------------------------------
 Command: launch_simulation -simset sim_1 -mode behavioral
 INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
 INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [SIM-utils-54] Inspecting design source files for 'High_lvl_sim' in fileset 'sim_1'...
+INFO: [SIM-utils-54] Inspecting design source files for 'alu_bsrc_pcbranch_testbench' in fileset 'sim_1'...
 INFO: [USF-XSim-97] Finding global include files...
 INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
 INFO: [USF-XSim-2] XSim::Compile design
 INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
-"xvhdl --incr --relax -prj High_lvl_sim_vhdl.prj"
+"xvhdl --incr --relax -prj alu_bsrc_pcbranch_testbench_vhdl.prj"
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/fixed_float_types_c.vhd" into library xil_defaultlib
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/fixed_pkg_c.vhd" into library xil_defaultlib
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/float_pkg_c.vhd" into library xil_defaultlib
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/dpu.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'datapath'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/PirateProcessorTop.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'PirateProcessorTop'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/control_unit.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'control_unit'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/instruction_mem.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'instruction_mem'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/ALU.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'alu'
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/pcbranch.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'pcbranch'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/High_lvl_testbench.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'High_lvl_sim'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/bsrc.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'bsrc'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/alu_bsrc_pcbranch_testbench.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'alu_bsrc_pcbranch_testbench'
 INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
 INFO: [USF-XSim-3] XSim::Elaborate design
 INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
-"xelab -wto 69f9169db5ce484ba05caa39729440a8 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot High_lvl_sim_behav xil_defaultlib.High_lvl_sim -log elaborate.log"
+"xelab -wto ca4056de266e4e7ea803e77c948f9841 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot alu_bsrc_pcbranch_testbench_behav xil_defaultlib.alu_bsrc_pcbranch_testbench -log elaborate.log"
 Vivado Simulator 2020.2
 Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
-Running: D:/Computer_Things/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 69f9169db5ce484ba05caa39729440a8 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot High_lvl_sim_behav xil_defaultlib.High_lvl_sim -log elaborate.log 
+Running: D:/Computer_Things/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto ca4056de266e4e7ea803e77c948f9841 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot alu_bsrc_pcbranch_testbench_behav xil_defaultlib.alu_bsrc_pcbranch_testbench -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
@@ -105,36 +101,34 @@ Compiling package ieee.math_real
 Compiling package xil_defaultlib.fixed_float_types
 Compiling package xil_defaultlib.fixed_pkg
 Compiling package xil_defaultlib.float_pkg
-Compiling architecture behave of entity xil_defaultlib.instruction_mem [instruction_mem_default]
-Compiling architecture behave of entity xil_defaultlib.control_unit [control_unit_default]
+Compiling architecture behave of entity xil_defaultlib.bsrc [bsrc_default]
+Compiling architecture behave of entity xil_defaultlib.alu [alu_default]
 Compiling architecture behave of entity xil_defaultlib.pcbranch [pcbranch_default]
-Compiling architecture struct of entity xil_defaultlib.datapath [datapath_default]
-Compiling architecture pirateprocessortop of entity xil_defaultlib.PirateProcessorTop [pirateprocessortop_default]
-Compiling architecture high_lvl_sim of entity xil_defaultlib.high_lvl_sim
-Built simulation snapshot High_lvl_sim_behav
+Compiling architecture alu_bsrc_pcbranch_testbench of entity xil_defaultlib.alu_bsrc_pcbranch_testbench
+Built simulation snapshot alu_bsrc_pcbranch_testbench_behav
 
 ****** Webtalk v2020.2 (64-bit)
   **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
   **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
     ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 
-source C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim/xsim.dir/High_lvl_sim_behav/webtalk/xsim_webtalk.tcl -notrace
-INFO: [Common 17-186] 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim/xsim.dir/High_lvl_sim_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Mon Apr 26 19:37:24 2021. For additional details about this file, please refer to the WebTalk help file at D:/Computer_Things/Vivado/2020.2/doc/webtalk_introduction.html.
-INFO: [Common 17-206] Exiting Webtalk at Mon Apr 26 19:37:24 2021...
-run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:41 . Memory (MB): peak = 999.895 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '41' seconds
+source C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim/xsim.dir/alu_bsrc_pcbranch_testbench_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim/xsim.dir/alu_bsrc_pcbranch_testbench_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Tue Apr 27 21:50:01 2021. For additional details about this file, please refer to the WebTalk help file at D:/Computer_Things/Vivado/2020.2/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Tue Apr 27 21:50:01 2021...
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:08 . Memory (MB): peak = 999.203 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '8' seconds
 INFO: [USF-XSim-4] XSim::Simulate design
 INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
 INFO: [USF-XSim-98] *** Running xsim
-   with args "High_lvl_sim_behav -key {Behavioral:sim_1:Functional:High_lvl_sim} -tclbatch {High_lvl_sim.tcl} -log {simulate.log}"
+   with args "alu_bsrc_pcbranch_testbench_behav -key {Behavioral:sim_1:Functional:alu_bsrc_pcbranch_testbench} -tclbatch {alu_bsrc_pcbranch_testbench.tcl} -log {simulate.log}"
 INFO: [USF-XSim-8] Loading simulator feature
 Vivado Simulator 2020.2
 Time resolution is 1 ps
-source High_lvl_sim.tcl
+source alu_bsrc_pcbranch_testbench.tcl
 ## current_wave_config
-INFO: [USF-XSim-96] XSim completed. Design snapshot 'High_lvl_sim_behav' loaded.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'alu_bsrc_pcbranch_testbench_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:45 . Memory (MB): peak = 999.895 ; gain = 0.000
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:12 . Memory (MB): peak = 999.203 ; gain = 0.000
 # if { $generateBitStream eq "true" } {
 #     puts "\n\nLaunching Synthesis ----------------------------------------"
 #     launch_runs synth_1
@@ -150,4 +144,4 @@ launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:45 . Memory (MB): 
 
 
 Implementation done! ----------------------------------------
-INFO: [Common 17-206] Exiting Vivado at Mon Apr 26 19:37:30 2021...
+INFO: [Common 17-206] Exiting Vivado at Tue Apr 27 21:50:07 2021...

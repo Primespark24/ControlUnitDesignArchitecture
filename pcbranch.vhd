@@ -17,7 +17,7 @@ port(constant_start: in STD_LOGIC_VECTOR(31 downto 0);
      branch_input: in STD_LOGIC;
      oldPC: in STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
      offset: in STD_LOGIC_VECTOR(18 downto 0);
-     Result: out STD_LOGIC_VECTOR(31 downto 0) := (others => '0'));
+     result: out STD_LOGIC_VECTOR(31 downto 0) := (others => '0'));
 end;
 
 ------------------------------------------------------------------------------------------------------------
@@ -29,14 +29,12 @@ signal one : STD_LOGIC_VECTOR(31 downto 0) := "00000000000000000000000000000001"
 begin
     process(clk, oldPC, one, branch_input)
     begin
-        if rising_edge(clk) then
             extendedOffset(31 downto 19) <= "0000000000000";
             extendedOffset(18 downto 0) <= offset;
             if(branch_input = '1') then
-                Result <= constant_start + offset;
+                result <= constant_start + offset;
             else
-                Result <= oldPC + one;
+                result <= oldPC + one;
             end if;
-        end if;
     end process;
 end;

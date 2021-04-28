@@ -20,11 +20,25 @@ Complete this section if you are doing a single cycle processor. Create the foll
 
     *********************************************************************
 
-    | Instruction     |                |                |                |                |
-    |:---------------:|:---------------::---------------::---------------::---------------:
-    |                 |                |                |                |                |
-    |                 |                |                |                |                |
+| Instruction| Instruction_Type | Opcode/aluControl | ReadBit | WriteBit  |
+|:----:| :----:|:----:|:----:|:----:|:----:|:----:  |
+| Addfi      |    00            | 00000             |  0      |  0        |
+| Sub        |    01            | 00010             |  0      |  0        |
+| Add        |    01            | 00001             |  0      |  0        |
+| Mul        |    01            | 00011             |  0      |  0        |
+| Div        |    01            | 00100             |  0      |  0        |
+| Mod        |    01            | 00101             |  0      |  0        |
+| And        |    01            | 00110             |  0      |  0        |
+| Or         |    01            | 00111             |  0      |  0        |
 
+| beq        |   10             |  01010            |  0      |  0        |
+| bne        |   10             |  01011            |  0      |  0        |
+| jump       |   10             |  01100            |  0      |  0        |
+| blt        |   10             |  01110            |  0      |  0        |
+| bgt        |   10             |  01111            |  0      |  0        |
+
+| lw         |    11            | 01000             |  1      |  0        |
+| sw         |    11            | 01001             |  0      |  1        |  
     Fig 1 Single Cycle CU Main Decoder Truth Table
     *********************************************************************
 
@@ -131,11 +145,11 @@ x means that the value depends on the runtime
 2: J-Type:   |2 Bit instruction type| 5 bits op| 6 RD | 32 Immediate/Float |Offset from current line 19 bits|
 | Instruction| Instruction_Type | Opcode | RD    | Immediate | Jump Offset |
 |:---:| :---:|:---:|:---:|:---:     |:---:   |
-| beq        |   10              |  01010 |  x    |   x       |  calculate  |
-| bne        |   10              |  01011 |  x    |   x       |  calculate  |
+| beq        |   10             |  01010 |  x    |   x       |  calculate  |
+| bne        |   10             |  01011 |  x    |   x       |  calculate  |
 | jump       |   10             |  01100 |  x    |   x       |  calculate  |
 | blt        |   10             |  01110 |  x    |   x       |  calculate  |
-| bgt        |   10             |  01111 |  x    |   x       |  calculate  |
+| bgt        |   10             |  01111 |  x    |   x       |  calculate  | --regA > immB
 
 3:  M-Type:   |2 Bit instruction type| 5 bits op| 45 bits Extra | 6 RD | 6 mem_loc |
 

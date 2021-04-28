@@ -2,10 +2,10 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Mon Apr 26 19:38:33 2021
-# Process ID: 9588
+# Start of session at: Tue Apr 27 21:51:12 2021
+# Process ID: 19188
 # Current directory: C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13816 C:\Users\green\Desktop\uploader\fp_3_micro-pirate-processor\generated\FP3.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13124 C:\Users\green\Desktop\uploader\fp_3_micro-pirate-processor\generated\FP3.xpr
 # Log file: C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/vivado.log
 # Journal file: C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated\vivado.jou
 #-----------------------------------------------------------
@@ -22,33 +22,32 @@ launch_simulation
 Command: launch_simulation 
 INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
 INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [SIM-utils-54] Inspecting design source files for 'High_lvl_sim' in fileset 'sim_1'...
+INFO: [SIM-utils-54] Inspecting design source files for 'alu_bsrc_pcbranch_testbench' in fileset 'sim_1'...
 INFO: [USF-XSim-97] Finding global include files...
 INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
 INFO: [USF-XSim-2] XSim::Compile design
 INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
-"xvhdl --incr --relax -prj High_lvl_sim_vhdl.prj"
-INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+"xvhdl --incr --relax -prj alu_bsrc_pcbranch_testbench_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
 INFO: [USF-XSim-3] XSim::Elaborate design
 INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
-"xelab -wto 69f9169db5ce484ba05caa39729440a8 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot High_lvl_sim_behav xil_defaultlib.High_lvl_sim -log elaborate.log"
+"xelab -wto ca4056de266e4e7ea803e77c948f9841 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot alu_bsrc_pcbranch_testbench_behav xil_defaultlib.alu_bsrc_pcbranch_testbench -log elaborate.log"
 Vivado Simulator 2020.2
 Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
-Running: D:/Computer_Things/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 69f9169db5ce484ba05caa39729440a8 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot High_lvl_sim_behav xil_defaultlib.High_lvl_sim -log elaborate.log 
+Running: D:/Computer_Things/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto ca4056de266e4e7ea803e77c948f9841 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot alu_bsrc_pcbranch_testbench_behav xil_defaultlib.alu_bsrc_pcbranch_testbench -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
 INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
-run_program: Time (s): cpu = 00:00:02 ; elapsed = 00:00:41 . Memory (MB): peak = 1188.047 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '41' seconds
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
 INFO: [USF-XSim-4] XSim::Simulate design
 INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
 INFO: [USF-XSim-98] *** Running xsim
-   with args "High_lvl_sim_behav -key {Behavioral:sim_1:Functional:High_lvl_sim} -tclbatch {High_lvl_sim.tcl} -log {simulate.log}"
+   with args "alu_bsrc_pcbranch_testbench_behav -key {Behavioral:sim_1:Functional:alu_bsrc_pcbranch_testbench} -tclbatch {alu_bsrc_pcbranch_testbench.tcl} -log {simulate.log}"
 INFO: [USF-XSim-8] Loading simulator feature
 Vivado Simulator 2020.2
 Time resolution is 1 ps
-source High_lvl_sim.tcl
+source alu_bsrc_pcbranch_testbench.tcl
 # set curr_wave [current_wave_config]
 # if { [string length $curr_wave] == 0 } {
 #   if { [llength [get_objects]] > 0} {
@@ -59,404 +58,30 @@ source High_lvl_sim.tcl
 #   }
 # }
 # run 1000ns
-INFO: [USF-XSim-96] XSim completed. Design snapshot 'High_lvl_sim_behav' loaded.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'alu_bsrc_pcbranch_testbench_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:12 ; elapsed = 00:00:47 . Memory (MB): peak = 1188.047 ; gain = 0.000
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run 200 ns
+launch_simulation: Time (s): cpu = 00:00:09 ; elapsed = 00:00:07 . Memory (MB): peak = 1189.059 ; gain = 0.000
 close_sim
 INFO: [Simtcl 6-16] Simulation closed
 launch_simulation
 Command: launch_simulation 
 INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
 INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [SIM-utils-54] Inspecting design source files for 'High_lvl_sim' in fileset 'sim_1'...
+INFO: [SIM-utils-54] Inspecting design source files for 'alu_bsrc_pcbranch_testbench' in fileset 'sim_1'...
 INFO: [USF-XSim-97] Finding global include files...
 INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
 INFO: [USF-XSim-2] XSim::Compile design
 INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
-"xvhdl --incr --relax -prj High_lvl_sim_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/control_unit.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'control_unit'
-INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
-"xelab -wto 69f9169db5ce484ba05caa39729440a8 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot High_lvl_sim_behav xil_defaultlib.High_lvl_sim -log elaborate.log"
-Vivado Simulator 2020.2
-Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
-Running: D:/Computer_Things/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 69f9169db5ce484ba05caa39729440a8 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot High_lvl_sim_behav xil_defaultlib.High_lvl_sim -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_unsigned
-Compiling package ieee.numeric_std
-Compiling package ieee.math_real
-Compiling package xil_defaultlib.fixed_float_types
-Compiling package xil_defaultlib.fixed_pkg
-Compiling package xil_defaultlib.float_pkg
-Compiling architecture behave of entity xil_defaultlib.instruction_mem [instruction_mem_default]
-Compiling architecture behave of entity xil_defaultlib.control_unit [control_unit_default]
-Compiling architecture behave of entity xil_defaultlib.pcbranch [pcbranch_default]
-Compiling architecture struct of entity xil_defaultlib.datapath [datapath_default]
-Compiling architecture pirateprocessortop of entity xil_defaultlib.PirateProcessorTop [pirateprocessortop_default]
-Compiling architecture high_lvl_sim of entity xil_defaultlib.high_lvl_sim
-Built simulation snapshot High_lvl_sim_behav
-run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:38 . Memory (MB): peak = 1188.047 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '38' seconds
-INFO: [USF-XSim-4] XSim::Simulate design
-INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
-INFO: [USF-XSim-98] *** Running xsim
-   with args "High_lvl_sim_behav -key {Behavioral:sim_1:Functional:High_lvl_sim} -tclbatch {High_lvl_sim.tcl} -log {simulate.log}"
-INFO: [USF-XSim-8] Loading simulator feature
-Vivado Simulator 2020.2
-Time resolution is 1 ps
-source High_lvl_sim.tcl
-# set curr_wave [current_wave_config]
-# if { [string length $curr_wave] == 0 } {
-#   if { [llength [get_objects]] > 0} {
-#     add_wave /
-#     set_property needs_save false [current_wave_config]
-#   } else {
-#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
-#   }
-# }
-# run 1000ns
-INFO: [USF-XSim-96] XSim completed. Design snapshot 'High_lvl_sim_behav' loaded.
-INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:42 . Memory (MB): peak = 1188.047 ; gain = 0.000
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run 200 ns
-close_sim
-INFO: [Simtcl 6-16] Simulation closed
-launch_simulation
-Command: launch_simulation 
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [SIM-utils-54] Inspecting design source files for 'High_lvl_sim' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
-"xvhdl --incr --relax -prj High_lvl_sim_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/dpu.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'datapath'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/PirateProcessorTop.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'PirateProcessorTop'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/control_unit.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'control_unit'
-INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
-"xelab -wto 69f9169db5ce484ba05caa39729440a8 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot High_lvl_sim_behav xil_defaultlib.High_lvl_sim -log elaborate.log"
-Vivado Simulator 2020.2
-Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
-Running: D:/Computer_Things/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 69f9169db5ce484ba05caa39729440a8 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot High_lvl_sim_behav xil_defaultlib.High_lvl_sim -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_unsigned
-Compiling package ieee.numeric_std
-Compiling package ieee.math_real
-Compiling package xil_defaultlib.fixed_float_types
-Compiling package xil_defaultlib.fixed_pkg
-Compiling package xil_defaultlib.float_pkg
-Compiling architecture behave of entity xil_defaultlib.instruction_mem [instruction_mem_default]
-Compiling architecture behave of entity xil_defaultlib.control_unit [control_unit_default]
-Compiling architecture behave of entity xil_defaultlib.pcbranch [pcbranch_default]
-Compiling architecture struct of entity xil_defaultlib.datapath [datapath_default]
-Compiling architecture pirateprocessortop of entity xil_defaultlib.PirateProcessorTop [pirateprocessortop_default]
-Compiling architecture high_lvl_sim of entity xil_defaultlib.high_lvl_sim
-Built simulation snapshot High_lvl_sim_behav
-run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:38 . Memory (MB): peak = 1188.047 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '38' seconds
-INFO: [USF-XSim-4] XSim::Simulate design
-INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
-INFO: [USF-XSim-98] *** Running xsim
-   with args "High_lvl_sim_behav -key {Behavioral:sim_1:Functional:High_lvl_sim} -tclbatch {High_lvl_sim.tcl} -log {simulate.log}"
-INFO: [USF-XSim-8] Loading simulator feature
-Vivado Simulator 2020.2
-Time resolution is 1 ps
-source High_lvl_sim.tcl
-# set curr_wave [current_wave_config]
-# if { [string length $curr_wave] == 0 } {
-#   if { [llength [get_objects]] > 0} {
-#     add_wave /
-#     set_property needs_save false [current_wave_config]
-#   } else {
-#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
-#   }
-# }
-# run 1000ns
-INFO: [USF-XSim-96] XSim completed. Design snapshot 'High_lvl_sim_behav' loaded.
-INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:43 . Memory (MB): peak = 1188.047 ; gain = 0.000
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run 200 ns
-run 200 ns
-run 200 ns
-run 200 ns
-run 200 ns
-run 200 ns
-run 200 ns
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-close_sim
-INFO: [Simtcl 6-16] Simulation closed
-launch_simulation
-Command: launch_simulation 
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [SIM-utils-54] Inspecting design source files for 'High_lvl_sim' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
-"xvhdl --incr --relax -prj High_lvl_sim_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/control_unit.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'control_unit'
-INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
-"xelab -wto 69f9169db5ce484ba05caa39729440a8 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot High_lvl_sim_behav xil_defaultlib.High_lvl_sim -log elaborate.log"
-Vivado Simulator 2020.2
-Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
-Running: D:/Computer_Things/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 69f9169db5ce484ba05caa39729440a8 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot High_lvl_sim_behav xil_defaultlib.High_lvl_sim -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_unsigned
-Compiling package ieee.numeric_std
-Compiling package ieee.math_real
-Compiling package xil_defaultlib.fixed_float_types
-Compiling package xil_defaultlib.fixed_pkg
-Compiling package xil_defaultlib.float_pkg
-Compiling architecture behave of entity xil_defaultlib.instruction_mem [instruction_mem_default]
-Compiling architecture behave of entity xil_defaultlib.control_unit [control_unit_default]
-Compiling architecture behave of entity xil_defaultlib.pcbranch [pcbranch_default]
-Compiling architecture struct of entity xil_defaultlib.datapath [datapath_default]
-Compiling architecture pirateprocessortop of entity xil_defaultlib.PirateProcessorTop [pirateprocessortop_default]
-Compiling architecture high_lvl_sim of entity xil_defaultlib.high_lvl_sim
-Built simulation snapshot High_lvl_sim_behav
-run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:37 . Memory (MB): peak = 1188.047 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '37' seconds
-INFO: [USF-XSim-4] XSim::Simulate design
-INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
-INFO: [USF-XSim-98] *** Running xsim
-   with args "High_lvl_sim_behav -key {Behavioral:sim_1:Functional:High_lvl_sim} -tclbatch {High_lvl_sim.tcl} -log {simulate.log}"
-INFO: [USF-XSim-8] Loading simulator feature
-Vivado Simulator 2020.2
-Time resolution is 1 ps
-source High_lvl_sim.tcl
-# set curr_wave [current_wave_config]
-# if { [string length $curr_wave] == 0 } {
-#   if { [llength [get_objects]] > 0} {
-#     add_wave /
-#     set_property needs_save false [current_wave_config]
-#   } else {
-#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
-#   }
-# }
-# run 1000ns
-INFO: [USF-XSim-96] XSim completed. Design snapshot 'High_lvl_sim_behav' loaded.
-INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:41 . Memory (MB): peak = 1188.047 ; gain = 0.000
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run 200 ns
-run 200 ns
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-close_sim
-INFO: [Simtcl 6-16] Simulation closed
-launch_simulation
-Command: launch_simulation 
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [SIM-utils-54] Inspecting design source files for 'High_lvl_sim' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
-"xvhdl --incr --relax -prj High_lvl_sim_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/control_unit.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'control_unit'
-INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
-"xelab -wto 69f9169db5ce484ba05caa39729440a8 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot High_lvl_sim_behav xil_defaultlib.High_lvl_sim -log elaborate.log"
-Vivado Simulator 2020.2
-Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
-Running: D:/Computer_Things/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 69f9169db5ce484ba05caa39729440a8 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot High_lvl_sim_behav xil_defaultlib.High_lvl_sim -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_unsigned
-Compiling package ieee.numeric_std
-Compiling package ieee.math_real
-Compiling package xil_defaultlib.fixed_float_types
-Compiling package xil_defaultlib.fixed_pkg
-Compiling package xil_defaultlib.float_pkg
-Compiling architecture behave of entity xil_defaultlib.instruction_mem [instruction_mem_default]
-Compiling architecture behave of entity xil_defaultlib.control_unit [control_unit_default]
-Compiling architecture behave of entity xil_defaultlib.pcbranch [pcbranch_default]
-Compiling architecture struct of entity xil_defaultlib.datapath [datapath_default]
-Compiling architecture pirateprocessortop of entity xil_defaultlib.PirateProcessorTop [pirateprocessortop_default]
-Compiling architecture high_lvl_sim of entity xil_defaultlib.high_lvl_sim
-Built simulation snapshot High_lvl_sim_behav
-run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:38 . Memory (MB): peak = 1188.047 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '38' seconds
-INFO: [USF-XSim-4] XSim::Simulate design
-INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
-INFO: [USF-XSim-98] *** Running xsim
-   with args "High_lvl_sim_behav -key {Behavioral:sim_1:Functional:High_lvl_sim} -tclbatch {High_lvl_sim.tcl} -log {simulate.log}"
-INFO: [USF-XSim-8] Loading simulator feature
-Vivado Simulator 2020.2
-Time resolution is 1 ps
-source High_lvl_sim.tcl
-# set curr_wave [current_wave_config]
-# if { [string length $curr_wave] == 0 } {
-#   if { [llength [get_objects]] > 0} {
-#     add_wave /
-#     set_property needs_save false [current_wave_config]
-#   } else {
-#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
-#   }
-# }
-# run 1000ns
-INFO: [USF-XSim-96] XSim completed. Design snapshot 'High_lvl_sim_behav' loaded.
-INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:42 . Memory (MB): peak = 1188.047 ; gain = 0.000
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run 200 ns
-run 200 ns
-close_sim
-INFO: [Simtcl 6-16] Simulation closed
-launch_simulation
-Command: launch_simulation 
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [SIM-utils-54] Inspecting design source files for 'High_lvl_sim' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
-"xvhdl --incr --relax -prj High_lvl_sim_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/control_unit.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'control_unit'
-INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
-"xelab -wto 69f9169db5ce484ba05caa39729440a8 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot High_lvl_sim_behav xil_defaultlib.High_lvl_sim -log elaborate.log"
-Vivado Simulator 2020.2
-Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
-Running: D:/Computer_Things/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 69f9169db5ce484ba05caa39729440a8 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot High_lvl_sim_behav xil_defaultlib.High_lvl_sim -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_unsigned
-Compiling package ieee.numeric_std
-Compiling package ieee.math_real
-Compiling package xil_defaultlib.fixed_float_types
-Compiling package xil_defaultlib.fixed_pkg
-Compiling package xil_defaultlib.float_pkg
-Compiling architecture behave of entity xil_defaultlib.instruction_mem [instruction_mem_default]
-Compiling architecture behave of entity xil_defaultlib.control_unit [control_unit_default]
-Compiling architecture behave of entity xil_defaultlib.pcbranch [pcbranch_default]
-Compiling architecture struct of entity xil_defaultlib.datapath [datapath_default]
-Compiling architecture pirateprocessortop of entity xil_defaultlib.PirateProcessorTop [pirateprocessortop_default]
-Compiling architecture high_lvl_sim of entity xil_defaultlib.high_lvl_sim
-Built simulation snapshot High_lvl_sim_behav
-run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:37 . Memory (MB): peak = 1188.047 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '38' seconds
-INFO: [USF-XSim-4] XSim::Simulate design
-INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
-INFO: [USF-XSim-98] *** Running xsim
-   with args "High_lvl_sim_behav -key {Behavioral:sim_1:Functional:High_lvl_sim} -tclbatch {High_lvl_sim.tcl} -log {simulate.log}"
-INFO: [USF-XSim-8] Loading simulator feature
-Vivado Simulator 2020.2
-Time resolution is 1 ps
-source High_lvl_sim.tcl
-# set curr_wave [current_wave_config]
-# if { [string length $curr_wave] == 0 } {
-#   if { [llength [get_objects]] > 0} {
-#     add_wave /
-#     set_property needs_save false [current_wave_config]
-#   } else {
-#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
-#   }
-# }
-# run 1000ns
-INFO: [USF-XSim-96] XSim completed. Design snapshot 'High_lvl_sim_behav' loaded.
-INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:42 . Memory (MB): peak = 1188.047 ; gain = 0.000
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run 200 ns
-run 200 ns
-close_sim
-INFO: [Simtcl 6-16] Simulation closed
-launch_simulation
-Command: launch_simulation 
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [SIM-utils-54] Inspecting design source files for 'High_lvl_sim' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
-"xvhdl --incr --relax -prj High_lvl_sim_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/control_unit.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'control_unit'
+"xvhdl --incr --relax -prj alu_bsrc_pcbranch_testbench_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/alu_bsrc_pcbranch_testbench.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'alu_bsrc_pcbranch_testbench'
 INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
 INFO: [USF-XSim-3] XSim::Elaborate design
 INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
-"xelab -wto 69f9169db5ce484ba05caa39729440a8 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot High_lvl_sim_behav xil_defaultlib.High_lvl_sim -log elaborate.log"
+"xelab -wto ca4056de266e4e7ea803e77c948f9841 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot alu_bsrc_pcbranch_testbench_behav xil_defaultlib.alu_bsrc_pcbranch_testbench -log elaborate.log"
 Vivado Simulator 2020.2
 Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
-Running: D:/Computer_Things/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 69f9169db5ce484ba05caa39729440a8 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot High_lvl_sim_behav xil_defaultlib.High_lvl_sim -log elaborate.log 
+Running: D:/Computer_Things/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto ca4056de266e4e7ea803e77c948f9841 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot alu_bsrc_pcbranch_testbench_behav xil_defaultlib.alu_bsrc_pcbranch_testbench -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
@@ -473,23 +98,20 @@ Compiling package ieee.math_real
 Compiling package xil_defaultlib.fixed_float_types
 Compiling package xil_defaultlib.fixed_pkg
 Compiling package xil_defaultlib.float_pkg
-Compiling architecture behave of entity xil_defaultlib.instruction_mem [instruction_mem_default]
-Compiling architecture behave of entity xil_defaultlib.control_unit [control_unit_default]
+Compiling architecture behave of entity xil_defaultlib.bsrc [bsrc_default]
+Compiling architecture behave of entity xil_defaultlib.alu [alu_default]
 Compiling architecture behave of entity xil_defaultlib.pcbranch [pcbranch_default]
-Compiling architecture struct of entity xil_defaultlib.datapath [datapath_default]
-Compiling architecture pirateprocessortop of entity xil_defaultlib.PirateProcessorTop [pirateprocessortop_default]
-Compiling architecture high_lvl_sim of entity xil_defaultlib.high_lvl_sim
-Built simulation snapshot High_lvl_sim_behav
-run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:50 . Memory (MB): peak = 1590.008 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '50' seconds
+Compiling architecture alu_bsrc_pcbranch_testbench of entity xil_defaultlib.alu_bsrc_pcbranch_testbench
+Built simulation snapshot alu_bsrc_pcbranch_testbench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
 INFO: [USF-XSim-4] XSim::Simulate design
 INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
 INFO: [USF-XSim-98] *** Running xsim
-   with args "High_lvl_sim_behav -key {Behavioral:sim_1:Functional:High_lvl_sim} -tclbatch {High_lvl_sim.tcl} -log {simulate.log}"
+   with args "alu_bsrc_pcbranch_testbench_behav -key {Behavioral:sim_1:Functional:alu_bsrc_pcbranch_testbench} -tclbatch {alu_bsrc_pcbranch_testbench.tcl} -log {simulate.log}"
 INFO: [USF-XSim-8] Loading simulator feature
 Vivado Simulator 2020.2
 Time resolution is 1 ps
-source High_lvl_sim.tcl
+source alu_bsrc_pcbranch_testbench.tcl
 # set curr_wave [current_wave_config]
 # if { [string length $curr_wave] == 0 } {
 #   if { [llength [get_objects]] > 0} {
@@ -500,34 +122,32 @@ source High_lvl_sim.tcl
 #   }
 # }
 # run 1000ns
-INFO: [USF-XSim-96] XSim completed. Design snapshot 'High_lvl_sim_behav' loaded.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'alu_bsrc_pcbranch_testbench_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:54 . Memory (MB): peak = 1590.008 ; gain = 0.000
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run 200 ns
-run 200 ns
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:08 . Memory (MB): peak = 1189.059 ; gain = 0.000
 close_sim
 INFO: [Simtcl 6-16] Simulation closed
 launch_simulation
 Command: launch_simulation 
 INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
 INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [SIM-utils-54] Inspecting design source files for 'High_lvl_sim' in fileset 'sim_1'...
+INFO: [SIM-utils-54] Inspecting design source files for 'alu_bsrc_pcbranch_testbench' in fileset 'sim_1'...
 INFO: [USF-XSim-97] Finding global include files...
 INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
 INFO: [USF-XSim-2] XSim::Compile design
 INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
-"xvhdl --incr --relax -prj High_lvl_sim_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/control_unit.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'control_unit'
-INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+"xvhdl --incr --relax -prj alu_bsrc_pcbranch_testbench_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/pcbranch.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'pcbranch'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/alu_bsrc_pcbranch_testbench.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'alu_bsrc_pcbranch_testbench'
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
 INFO: [USF-XSim-3] XSim::Elaborate design
 INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
-"xelab -wto 69f9169db5ce484ba05caa39729440a8 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot High_lvl_sim_behav xil_defaultlib.High_lvl_sim -log elaborate.log"
+"xelab -wto ca4056de266e4e7ea803e77c948f9841 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot alu_bsrc_pcbranch_testbench_behav xil_defaultlib.alu_bsrc_pcbranch_testbench -log elaborate.log"
 Vivado Simulator 2020.2
 Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
-Running: D:/Computer_Things/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 69f9169db5ce484ba05caa39729440a8 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot High_lvl_sim_behav xil_defaultlib.High_lvl_sim -log elaborate.log 
+Running: D:/Computer_Things/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto ca4056de266e4e7ea803e77c948f9841 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot alu_bsrc_pcbranch_testbench_behav xil_defaultlib.alu_bsrc_pcbranch_testbench -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
@@ -544,23 +164,20 @@ Compiling package ieee.math_real
 Compiling package xil_defaultlib.fixed_float_types
 Compiling package xil_defaultlib.fixed_pkg
 Compiling package xil_defaultlib.float_pkg
-Compiling architecture behave of entity xil_defaultlib.instruction_mem [instruction_mem_default]
-Compiling architecture behave of entity xil_defaultlib.control_unit [control_unit_default]
+Compiling architecture behave of entity xil_defaultlib.bsrc [bsrc_default]
+Compiling architecture behave of entity xil_defaultlib.alu [alu_default]
 Compiling architecture behave of entity xil_defaultlib.pcbranch [pcbranch_default]
-Compiling architecture struct of entity xil_defaultlib.datapath [datapath_default]
-Compiling architecture pirateprocessortop of entity xil_defaultlib.PirateProcessorTop [pirateprocessortop_default]
-Compiling architecture high_lvl_sim of entity xil_defaultlib.high_lvl_sim
-Built simulation snapshot High_lvl_sim_behav
-run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:56 . Memory (MB): peak = 1590.008 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '56' seconds
+Compiling architecture alu_bsrc_pcbranch_testbench of entity xil_defaultlib.alu_bsrc_pcbranch_testbench
+Built simulation snapshot alu_bsrc_pcbranch_testbench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
 INFO: [USF-XSim-4] XSim::Simulate design
 INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
 INFO: [USF-XSim-98] *** Running xsim
-   with args "High_lvl_sim_behav -key {Behavioral:sim_1:Functional:High_lvl_sim} -tclbatch {High_lvl_sim.tcl} -log {simulate.log}"
+   with args "alu_bsrc_pcbranch_testbench_behav -key {Behavioral:sim_1:Functional:alu_bsrc_pcbranch_testbench} -tclbatch {alu_bsrc_pcbranch_testbench.tcl} -log {simulate.log}"
 INFO: [USF-XSim-8] Loading simulator feature
 Vivado Simulator 2020.2
 Time resolution is 1 ps
-source High_lvl_sim.tcl
+source alu_bsrc_pcbranch_testbench.tcl
 # set curr_wave [current_wave_config]
 # if { [string length $curr_wave] == 0 } {
 #   if { [llength [get_objects]] > 0} {
@@ -571,14 +188,70 @@ source High_lvl_sim.tcl
 #   }
 # }
 # run 1000ns
-INFO: [USF-XSim-96] XSim completed. Design snapshot 'High_lvl_sim_behav' loaded.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'alu_bsrc_pcbranch_testbench_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:01:01 . Memory (MB): peak = 1590.008 ; gain = 0.000
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run 200 ns
-run 200 ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:08 . Memory (MB): peak = 1189.059 ; gain = 0.000
 close_sim
 INFO: [Simtcl 6-16] Simulation closed
-exit
-INFO: [Common 17-206] Exiting Vivado at Mon Apr 26 20:45:51 2021...
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'alu_bsrc_pcbranch_testbench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj alu_bsrc_pcbranch_testbench_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/pcbranch.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'pcbranch'
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
+"xelab -wto ca4056de266e4e7ea803e77c948f9841 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot alu_bsrc_pcbranch_testbench_behav xil_defaultlib.alu_bsrc_pcbranch_testbench -log elaborate.log"
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: D:/Computer_Things/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto ca4056de266e4e7ea803e77c948f9841 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot alu_bsrc_pcbranch_testbench_behav xil_defaultlib.alu_bsrc_pcbranch_testbench -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
+Compiling package ieee.numeric_std
+Compiling package ieee.math_real
+Compiling package xil_defaultlib.fixed_float_types
+Compiling package xil_defaultlib.fixed_pkg
+Compiling package xil_defaultlib.float_pkg
+Compiling architecture behave of entity xil_defaultlib.bsrc [bsrc_default]
+Compiling architecture behave of entity xil_defaultlib.alu [alu_default]
+Compiling architecture behave of entity xil_defaultlib.pcbranch [pcbranch_default]
+Compiling architecture alu_bsrc_pcbranch_testbench of entity xil_defaultlib.alu_bsrc_pcbranch_testbench
+Built simulation snapshot alu_bsrc_pcbranch_testbench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/generated/FP3.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "alu_bsrc_pcbranch_testbench_behav -key {Behavioral:sim_1:Functional:alu_bsrc_pcbranch_testbench} -tclbatch {alu_bsrc_pcbranch_testbench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+source alu_bsrc_pcbranch_testbench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'alu_bsrc_pcbranch_testbench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:08 . Memory (MB): peak = 1189.059 ; gain = 0.000

@@ -24,10 +24,10 @@ set projectName "FP3"
 set topLevelModuleName "PirateProcessorTop" 
 
 # Set this to the top level entity name in your simulation testbench vhdl file or set to "" if no testbench
-set topLevelTestbenchModuleName "High_lvl_sim"
+set topLevelTestbenchModuleName "alu_bsrc_pcbranch_testbench"
 
 # Set this to the name of your  simulation testbench vhdl file or leave as "" if no test bench
-set simulationTestbench "./High_lvl_testbench.vhd"
+set simulationTestbench "./alu_bsrc_pcbranch_testbench.vhd"
 
 # flag to generate bitstream. Set to true if you want to program the board
 set generateBitStream "false"

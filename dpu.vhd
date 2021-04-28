@@ -54,7 +54,7 @@ IM : entity work.instruction_mem port map(PC_value => PC(5 downto 0), instruc =>
 CU : entity work.control_unit port map(clk=>clk, instr => instr, readBit => RB, writeBit => WB, instr_type => instruct_type, alucontrol => alu_control);
 
 ------ Wiring for pcbranch            
-pcBranchComp : entity work.pcbranch port map(constant_start => const_zero, clk => clk, branch_input => branch, oldPC => PC, offset => instr(18 downto 0), Result => PC); 
+pcBranchComp : entity work.pcbranch port map(constant_start => const_zero, clk => clk, branch_input => branch, oldPC => PC, offset => instr(18 downto 0), result => PC); 
 
 ---- Wiring for bsrc
 BSRCComp : entity work.bsrc port map(instr_type => instr(63 downto 62), regB => RF_b, immB => immB_input, toB => b_alu_input);

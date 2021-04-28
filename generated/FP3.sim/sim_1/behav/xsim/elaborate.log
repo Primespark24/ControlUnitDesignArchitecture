@@ -1,6 +1,6 @@
 Vivado Simulator 2020.2
 Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
-Running: D:/Computer_Things/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 69f9169db5ce484ba05caa39729440a8 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot High_lvl_sim_behav xil_defaultlib.High_lvl_sim -log elaborate.log 
+Running: D:/Computer_Things/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto ca4056de266e4e7ea803e77c948f9841 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot alu_bsrc_pcbranch_testbench_behav xil_defaultlib.alu_bsrc_pcbranch_testbench -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
@@ -17,10 +17,8 @@ Compiling package ieee.math_real
 Compiling package xil_defaultlib.fixed_float_types
 Compiling package xil_defaultlib.fixed_pkg
 Compiling package xil_defaultlib.float_pkg
-Compiling architecture behave of entity xil_defaultlib.instruction_mem [instruction_mem_default]
-Compiling architecture behave of entity xil_defaultlib.control_unit [control_unit_default]
+Compiling architecture behave of entity xil_defaultlib.bsrc [bsrc_default]
+Compiling architecture behave of entity xil_defaultlib.alu [alu_default]
 Compiling architecture behave of entity xil_defaultlib.pcbranch [pcbranch_default]
-Compiling architecture struct of entity xil_defaultlib.datapath [datapath_default]
-Compiling architecture pirateprocessortop of entity xil_defaultlib.PirateProcessorTop [pirateprocessortop_default]
-Compiling architecture high_lvl_sim of entity xil_defaultlib.high_lvl_sim
-Built simulation snapshot High_lvl_sim_behav
+Compiling architecture alu_bsrc_pcbranch_testbench of entity xil_defaultlib.alu_bsrc_pcbranch_testbench
+Built simulation snapshot alu_bsrc_pcbranch_testbench_behav

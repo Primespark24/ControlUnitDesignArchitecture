@@ -58,7 +58,7 @@ begin
     elsif alucontrol = "01011" and a_minus_b /= STD_LOGIC_VECTOR(float_zero) then 
       branch <= '1';
     --Jump
-    elsif alucontrol = "01011" then
+    elsif alucontrol = "01100" then
       branch <= '1';
     --BLT: If a is less than b, then a-b will be negative
     elsif alucontrol = "01110" and a_minus_b < STD_LOGIC_VECTOR(float_zero) then

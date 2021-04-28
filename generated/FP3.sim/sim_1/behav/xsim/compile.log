@@ -1,2 +1,2 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/control_unit.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'control_unit'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/green/Desktop/uploader/fp_3_micro-pirate-processor/pcbranch.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'pcbranch'
